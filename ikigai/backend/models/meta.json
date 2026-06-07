@@ -1,0 +1,33 @@
+{
+  "features": [
+    "Study_Hours_Per_Day",
+    "Extracurricular_Hours_Per_Day",
+    "Sleep_Hours_Per_Day",
+    "Social_Hours_Per_Day",
+    "Physical_Activity_Hours_Per_Day",
+    "GPA"
+  ],
+  "gpa_features": [
+    "Study_Hours_Per_Day",
+    "Extracurricular_Hours_Per_Day",
+    "Sleep_Hours_Per_Day",
+    "Social_Hours_Per_Day",
+    "Physical_Activity_Hours_Per_Day"
+  ],
+  "stress_classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "feature_importances": {
+    "Study_Hours_Per_Day": 0.23560633924552868,
+    "Extracurricular_Hours_Per_Day": 0.14825803086109327,
+    "Sleep_Hours_Per_Day": 0.32806196404246063,
+    "Social_Hours_Per_Day": 0.05275476209045972,
+    "Physical_Activity_Hours_Per_Day": 0.10995795836391285,
+    "GPA": 0.12536094539654485
+  },
+  "rf_accuracy": 0.9425,
+  "gpa_mae": 0.1921155090111882,
+  "gpa_r2": 0.8348129574249842
+}

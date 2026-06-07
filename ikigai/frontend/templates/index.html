@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IKIGAI — Mental Health & Productivity Correlator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    IKIGAI <span class="jp-small">生き甲斐</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#how">How It Works</a>
+    <a href="#scoring">Scoring</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://github.com/prachyyy/IKAGAI-project" target="_blank">GitHub ↗</a>
+  </div>
+  <div id="nav-cta">
+    <button class="btn-outline" onclick="openModal('login')">Sign In</button>
+    <button class="btn-solid" onclick="openModal('signup')">Get Started</button>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="blossom blossom-r">
+    <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="100" y1="280" x2="100" y2="60" stroke="#1a1714" stroke-width="2.5"/>
+      <line x1="100" y1="210" x2="44" y2="148" stroke="#1a1714" stroke-width="1.4"/>
+      <line x1="100" y1="175" x2="156" y2="125" stroke="#1a1714" stroke-width="1.4"/>
+      <g opacity="0.9">
+        <ellipse cx="82" cy="50" rx="10" ry="14" fill="#c9a4a0" transform="rotate(-20 82 50)"/>
+        <ellipse cx="100" cy="43" rx="10" ry="14" fill="#d4b0ac" transform="rotate(5 100 43)"/>
+        <ellipse cx="118" cy="50" rx="10" ry="14" fill="#c9a4a0" transform="rotate(25 118 50)"/>
+        <ellipse cx="90" cy="67" rx="10" ry="14" fill="#d4b0ac" transform="rotate(-40 90 67)"/>
+        <ellipse cx="110" cy="67" rx="10" ry="14" fill="#c9a4a0" transform="rotate(40 110 67)"/>
+        <circle cx="100" cy="57" r="5" fill="#8b3a3a" opacity="0.65"/>
+      </g>
+      <g transform="translate(44,142)" opacity="0.85">
+        <ellipse cx="0"  cy="-10" rx="8" ry="11" fill="#c9a4a0" transform="rotate(-20 0 -10)"/>
+        <ellipse cx="14" cy="-14" rx="8" ry="11" fill="#d4b0ac" transform="rotate(10 14 -14)"/>
+        <ellipse cx="28" cy="-8"  rx="8" ry="11" fill="#c9a4a0" transform="rotate(30 28 -8)"/>
+        <circle cx="14" cy="0" r="4" fill="#8b3a3a" opacity="0.5"/>
+      </g>
+      <ellipse cx="30"  cy="90"  rx="5" ry="7" fill="#c9a4a0" opacity="0.45" transform="rotate(30 30 90)"/>
+      <ellipse cx="168" cy="105" rx="4" ry="6" fill="#d4b0ac" opacity="0.40" transform="rotate(-20 168 105)"/>
+      <ellipse cx="55"  cy="195" rx="4" ry="6" fill="#c9a4a0" opacity="0.30" transform="rotate(45 55 195)"/>
+    </svg>
+  </div>
+  <div class="blossom blossom-l">
+    <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="80" y1="220" x2="80" y2="50" stroke="#1a1714" stroke-width="2"/>
+      <line x1="80" y1="165" x2="32" y2="115" stroke="#1a1714" stroke-width="1.2"/>
+      <line x1="80" y1="135" x2="122" y2="98"  stroke="#1a1714" stroke-width="1.2"/>
+      <g opacity="0.85">
+        <ellipse cx="64" cy="40" rx="9" ry="12" fill="#c9a4a0" transform="rotate(-15 64 40)"/>
+        <ellipse cx="80" cy="34" rx="9" ry="12" fill="#d4b0ac" transform="rotate(5 80 34)"/>
+        <ellipse cx="96" cy="40" rx="9" ry="12" fill="#c9a4a0" transform="rotate(20 96 40)"/>
+        <ellipse cx="72" cy="54" rx="9" ry="12" fill="#d4b0ac" transform="rotate(-35 72 54)"/>
+        <ellipse cx="88" cy="54" rx="9" ry="12" fill="#c9a4a0" transform="rotate(35 88 54)"/>
+        <circle cx="80" cy="46" r="4" fill="#8b3a3a" opacity="0.6"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">🌸 Preventive · Explainable · Ethical AI</div>
+    <h1 class="serif">Find Your <em>Ikigai</em><br>Balance</h1>
+    <p class="hero-jp jp">生き甲斐 — Reason for Being</p>
+    <p class="hero-desc">An AI-powered mental health and productivity correlator for students — built on the Ikigai philosophy, behavioral data science, and explainable machine learning.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="openModal('signup')"><span>Start Your Journey</span></button>
+      <a class="btn-ghost" href="#about">Learn More ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num serif">94.3%</span><span class="stat-label">ML Accuracy</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num serif">3</span><span class="stat-label">Scoring Layers</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num serif">4</span><span class="stat-label">Ikigai Pillars</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-num serif">2000</span><span class="stat-label">Training Records</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────── -->
+<section id="about" class="section fade-in">
+  <div class="container">
+    <span class="section-label">Philosophy</span>
+    <h2 class="section-title serif">The Ikigai Framework</h2>
+    <p class="section-sub">Four measurable pillars translate ancient Japanese wisdom into modern behavioral analytics.</p>
+    <div class="ikigai-wrap">
+      <div class="ikigai-diagram">
+        <svg viewBox="0 0 320 330" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="160" cy="120" r="88" fill="rgba(176,58,46,0.13)" stroke="#b03a2e" stroke-width="1"/>
+          <circle cx="212" cy="196" r="88" fill="rgba(91,111,130,0.12)" stroke="#5b6f82" stroke-width="1"/>
+          <circle cx="108" cy="196" r="88" fill="rgba(140,128,112,0.12)" stroke="#8c8070" stroke-width="1"/>
+          <text x="160" y="46"  text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#b03a2e" font-weight="600">LOVE</text>
+          <text x="160" y="60"  text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#b03a2e">Physical + Social</text>
+          <text x="258" y="220" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#5b6f82" font-weight="600">GOOD AT</text>
+          <text x="258" y="234" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#5b6f82">Study Consistency</text>
+          <text x="62"  y="220" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#8c8070" font-weight="600">NEED</text>
+          <text x="62"  y="234" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8c8070">Recovery Balance</text>
+          <text x="160" y="175" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="15" fill="#1a1714" font-weight="600">IKIGAI</text>
+          <text x="160" y="191" text-anchor="middle" font-family="Noto Serif JP,serif" font-size="11" fill="#1a1714" opacity="0.55">生き甲斐</text>
+          <text x="160" y="308" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#3d3830" font-weight="600">VALUE</text>
+          <text x="160" y="322" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#3d3830">Productivity Score</text>
+        </svg>
+      </div>
+      <div class="ikigai-text fade-in">
+        <h3 class="serif">What you love, what you are good at, what the world needs, and what you can be paid for.</h3>
+        <p>The Ikigai framework is operationalized into four measurable behavioral pillars, allowing students to visualize balance between mental well-being and academic effort.</p>
+        <ul class="pillar-list">
+          <li><strong>Love</strong> — Physical activity + social connection (inverted scoring to penalise overexertion)</li>
+          <li><strong>Good At</strong> — Study consistency score (balanced hours score highest)</li>
+          <li><strong>Need</strong> — Sleep vs stress recovery balance</li>
+          <li><strong>Value</strong> — Weighted productivity output score</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ───────────────────────────────────────────── -->
+<section id="features" class="section section-alt fade-in">
+  <div class="container">
+    <span class="section-label">Capabilities</span>
+    <h2 class="section-title serif">Everything You Need</h2>
+    <p class="section-sub">Designed for college students facing academic pressure, screen overuse, or burnout risk.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="fi">🧠</div><h4 class="serif">Behavioral Normalization</h4><p>Raw inputs converted to 0–100 scores so different units are comparable.</p></div>
+      <div class="feature-card"><div class="fi">📊</div><h4 class="serif">Stress & Productivity</h4><p>Weighted scoring produces stress risk and productivity scores based on psychology research.</p></div>
+      <div class="feature-card"><div class="fi">🤖</div><h4 class="serif">Ensemble ML (94.3%)</h4><p>Random Forest + Decision Tree + Logistic Regression ensemble for robust prediction.</p></div>
+      <div class="feature-card"><div class="fi">⚖️</div><h4 class="serif">Ethical Overrides</h4><p>Rule-based safety logic always overrides ML output to prevent harmful misclassification.</p></div>
+      <div class="feature-card"><div class="fi">🌸</div><h4 class="serif">Ikigai Balance Score</h4><p>A 0–100 holistic score reflecting harmony between effort and well-being.</p></div>
+      <div class="feature-card"><div class="fi">💡</div><h4 class="serif">Personalised Advice</h4><p>Actionable, prioritised recommendations to improve balance and reduce burnout risk.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────────────────── -->
+<section id="how" class="section section-dark fade-in">
+  <div class="container">
+    <span class="section-label">Process</span>
+    <h2 class="section-title serif" style="color:var(--paper)">Your Journey <em>Simplified</em></h2>
+    <p class="section-sub" style="color:rgba(245,240,232,.55)">Five inputs. Three layers. One Ikigai score.</p>
+    <div class="steps-row">
+      <div class="step"><span class="step-n serif">01</span><h4 class="serif">Log Habits</h4><p>Sleep, study, screen time, physical activity, social hours — entered daily.</p></div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span class="step-n serif">02</span><h4 class="serif">Normalize</h4><p>Raw values converted to 0–100 behavioral scores using psychological benchmarks.</p></div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span class="step-n serif">03</span><h4 class="serif">Score</h4><p>Weighted stress risk and productivity scores computed per Layer 2.</p></div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span class="step-n serif">04</span><h4 class="serif">ML + Override</h4><p>Ensemble ML validates. Rule-based overrides protect against misclassification.</p></div>
+      <div class="step-arrow">→</div>
+      <div class="step"><span class="step-n serif">05</span><h4 class="serif">Ikigai Score</h4><p>Four pillars combined into your final balance score with personalised recommendations.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCORING ────────────────────────────────────────────── -->
+<section id="scoring" class="section fade-in">
+  <div class="container">
+    <span class="section-label">Methodology</span>
+    <h2 class="section-title serif">Scoring Layers</h2>
+    <p class="section-sub">Explainable, ethical, and grounded in behavioral psychology.</p>
+    <div class="disclaimer-bar">⚠️ &nbsp;This system is <strong>not a medical diagnostic tool</strong>. It is intended solely for awareness, self-reflection, and preventive well-being support.</div>
+    <div class="layers">
+      <div class="layer-card"><div class="layer-n serif">1</div><div class="layer-body"><span class="tag">0–100 Scale</span><h4 class="serif">Behavioral Normalization</h4><p>Sleep optimal at 7–8 hrs; screen time inverted; study peaks at 5 hrs; mood scaled 1–5.</p></div></div>
+      <div class="layer-card"><div class="layer-n serif">2</div><div class="layer-body"><span class="tag">Weighted</span><h4 class="serif">Stress & Productivity Analysis</h4><p>Sleep (30%) + study overwork (30%) + physical (18%) + social (12%) + extracurricular (10%).</p></div></div>
+      <div class="layer-card"><div class="layer-n serif">3</div><div class="layer-body"><span class="tag">ML + Rules</span><h4 class="serif">Ensemble ML & Safety Overrides</h4><p>RF (60%) + DT (25%) + LR (15%) ensemble. Rule-based overrides always have final authority.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────── -->
+<section id="faq" class="section section-alt fade-in">
+  <div class="container">
+    <span class="section-label">Questions</span>
+    <h2 class="section-title serif">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q serif" onclick="toggleFaq(this)">Is this a medical diagnostic tool?<span class="faq-icon">+</span></button><div class="faq-a">No. This system is not a medical diagnostic tool. It is intended solely for awareness, self-reflection, and preventive well-being support. For any mental health concerns, please consult a licensed professional.</div></div>
+      <div class="faq-item"><button class="faq-q serif" onclick="toggleFaq(this)">What data do I enter daily?<span class="faq-icon">+</span></button><div class="faq-a">Five simple habit inputs: sleep hours, study hours, extracurricular hours, social hours, and physical activity hours. The entire process takes under a minute.</div></div>
+      <div class="faq-item"><button class="faq-q serif" onclick="toggleFaq(this)">How is the Ikigai Balance Score calculated?<span class="faq-icon">+</span></button><div class="faq-a">Four pillars — Love (physical + social), Good At (study), Need (sleep vs stress), Value (productivity) — are computed individually and averaged into a 0–100 balance score.</div></div>
+      <div class="faq-item"><button class="faq-q serif" onclick="toggleFaq(this)">Why do rule-based overrides supersede ML?<span class="faq-icon">+</span></button><div class="faq-a">To ensure ethical responsibility. ML trained on synthetic data may underestimate stress in extreme cases. Rules ensure very low sleep or extreme patterns are never misclassified as "Low stress".</div></div>
+      <div class="faq-item"><button class="faq-q serif" onclick="toggleFaq(this)">Is my data private?<span class="faq-icon">+</span></button><div class="faq-a">Yes. All data is stored server-side in memory only for this session. No data is sent to third parties. For production, use a persistent database with encryption.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────── -->
+<section class="section section-dark fade-in" style="text-align:center">
+  <div class="container">
+    <div class="cta-jp jp">生き甲斐を見つけよう</div>
+    <h2 class="section-title serif" style="color:var(--paper)">Ready to Find Your <em>Balance?</em></h2>
+    <p class="section-sub" style="color:rgba(245,240,232,.55)">Start tracking your habits. Understand yourself better. Live with purpose.</p>
+    <button class="btn-primary" onclick="openModal('signup')"><span>Create Free Account</span></button>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo serif">IKIGAI <span class="jp" style="font-size:.65rem;font-weight:200;opacity:.6;letter-spacing:.2em">生き甲斐</span></div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#how">How It Works</a>
+      <a href="#scoring">Scoring</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/prachyyy/IKAGAI-project" target="_blank">GitHub ↗</a>
+    </div>
+    <div class="footer-note">Contributor: Prachi Patil &nbsp;·&nbsp; Not a medical tool</div>
+  </div>
+</footer>
+
+<!-- ── AUTH MODAL ─────────────────────────────────────────── -->
+<div class="modal-overlay" id="auth-modal" onclick="closeOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-logo serif">IKIGAI</div>
+    <div class="modal-jp jp">生き甲斐</div>
+    <div class="tab-row">
+      <button class="tab-btn" id="tab-login"  onclick="switchTab('login')">Sign In</button>
+      <button class="tab-btn" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- Login -->
+    <div id="form-login">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="l-email" placeholder="you@example.com" autocomplete="email"/>
+        <div class="form-err" id="l-email-err">Enter a valid email.</div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="l-pass" placeholder="••••••••" autocomplete="current-password"/>
+        <div class="form-err" id="l-pass-err">Password is required.</div>
+      </div>
+      <div class="form-err" id="l-general-err"></div>
+      <button class="btn-full" onclick="handleLogin()">Sign In</button>
+      <p class="modal-msg">No account? <a href="#" onclick="switchTab('signup')">Sign up →</a></p>
+    </div>
+
+    <!-- Signup -->
+    <div id="form-signup" style="display:none">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="s-name" placeholder="Prachi Patil" autocomplete="name"/>
+        <div class="form-err" id="s-name-err">Name is required.</div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="s-email" placeholder="you@example.com" autocomplete="email"/>
+        <div class="form-err" id="s-email-err">Enter a valid email.</div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="s-pass" placeholder="Min. 6 characters" autocomplete="new-password"/>
+        <div class="form-err" id="s-pass-err">Password must be ≥ 6 characters.</div>
+      </div>
+      <div class="form-err" id="s-general-err"></div>
+      <button class="btn-full" id="signup-btn" onclick="handleSignup()">Create Account</button>
+      <div class="form-success" id="signup-success">✓ Account created! Redirecting…</div>
+      <p class="modal-msg">Have an account? <a href="#" onclick="switchTab('login')">Sign in →</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+<script>
+  /* Scroll nav shadow */
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+  /* Scroll reveal */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  /* FAQ toggle */
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
