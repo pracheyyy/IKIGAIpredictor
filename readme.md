@@ -150,7 +150,7 @@ These pillars are combined to create a holistic balance score ranging from 0–1
 
 ---
 ## Screenshot
-<img width="1731" height="6844" alt="image" src="https://github.com/user-attachments/assets/54354a83-fad9-4e4b-99d9-3aa1a10dcba0" />
+<img width="1731" height="3885" alt="image" src="https://github.com/user-attachments/assets/54354a83-fad9-4e4b-99d9-3aa1a10dcba0" />
 
 <img width="1731" height="3885" alt="image" src="https://github.com/user-attachments/assets/2fe6b28c-fd54-41d1-8bcf-4202abfada2f" />
 
